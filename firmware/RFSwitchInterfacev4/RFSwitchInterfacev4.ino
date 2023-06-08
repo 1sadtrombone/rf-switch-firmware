@@ -164,7 +164,7 @@ void messageParse(String message){
         setVoltage(Vout_set);
         Serial.print("Set voltage out to ");
         Serial.print(Vout_set);
-        Serial.println(" ms");
+        Serial.println(" V");
       } else {
         Serial.println("! Voltage specified is NaN");
       }
