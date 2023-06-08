@@ -198,7 +198,6 @@ void setup() {
   pinMode(iSense, INPUT);
 
   initializeChips();
-  Serial.println("got past init");
   for( i = 0;i < 9;i++){
     Wire.beginTransmission(chipAddr[i]);
     error = Wire.endTransmission();
