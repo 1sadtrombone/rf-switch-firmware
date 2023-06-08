@@ -71,13 +71,11 @@ void initializeChips(){
 bool onOutput(int chipNum, int pinNum){
   bitSet(commandBits[chipNum], pinNum+3);
   writeRegister(chipAddr[chipNum],IC_1,commandBits[chipNum]);
-  Serial.println(commandBits[chipNum]);
 }
 
 bool offOutput(int chipNum, int pinNum){
   bitClear(commandBits[chipNum], pinNum+3);
   writeRegister(chipAddr[chipNum],IC_1,commandBits[chipNum]);
-  Serial.println(commandBits[chipNum]);
 }
 
 void toggle(int switchN, bool open) {
