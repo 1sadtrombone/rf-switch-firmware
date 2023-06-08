@@ -24,48 +24,12 @@ int Pnums[] = {3, 1, 3, 1, 3, 1};
 // to remember the last state, so that switches on the same chip can be controlled independently
 byte commandBits[] = {0b00000100, 0b00000100, 0b00000100, 0b00000100, 0b00000100, 0b00000100};
 
-float Vout_meas;
-float current;
-float V_operating = 4.995; // 4.7 if on USB only power
-float Rshunt = 0.1; // Ohms
-float Gain = 50; // From datasheet
-float currentScale = V_operating/(Rshunt * Gain)/1024.0*1000; // mA
-int zeroCurrentLevel = 8; // what analogRead reads with no current
-
-float Vout_set = 3.2; // can't go lower than 1.1 V, chips need 2.6 V anyway
-int Vout_set_int;
-
 int writeError;
 
 String instring = "";
 bool messageDone = true;
-bool streamOn = false;
-
-int onPulseDuration = 20; // ms. Amount of time the switching current is on to open the switch
-int offPulseDuration = 70; // ms. Ditto to close the switch
 
 int switch_index;
-int port_index;
-
-int tick_count;
-int ticks_per_read = 500;
-
-float getCurrent(){
-  return (analogRead(iSense)-zeroCurrentLevel)*currentScale;
-}
-
-int getCurrentRaw(){
-  return analogRead(iSense);
-}
-
-float getVoltage(){
-  return analogRead(Vout_read_pin)/1024.0 * V_operating;
-}
-
-void setVoltage(float Vout_set){
-  Vout_set_int = Vout_set / V_operating * 256;
-  analogWrite(Vout_set_pin, Vout_set_int);
-}
 
 void writeRegister(byte addr, byte reg, byte val){
   Wire.beginTransmission(addr);
@@ -135,32 +99,12 @@ void toggle(int switchN, bool open) {
 
 void messageParse(String message){
   // first 3 chars are the command
-  if (message.substring(0,3) == "vlt") { // short for voltage
-    // set the pulse duration
-    // syntax: "dur [integer duration in ms]"
-    // if duration not specified, it prints the current duration instead
-      if (isDigit(message.charAt(4))) {
-        Vout_set = message.substring(4).toInt();
-        setVoltage(Vout_set);
-        Serial.print("Set voltage out to ");
-        Serial.print(Vout_set);
-        Serial.println(" ms");
-      } else {
-        Serial.println("! Voltage specified is NaN");
-      }
-
-  } else if (message.substring(0,3) == "stm") { // for "stream"
-    // toggles printing the voltage and current every cycle
-    streamOn = !streamOn;
-
-  } else if (message.substring(0,3) == "all") { // for open all
+  if (message.substring(0,3) == "all") { // for open all
   // open all ports of a switch in sequential order
   // syntax: "all" (no args)
-  // switch # is 1-indexed in the command
-
-  for (i = 0; i < 5; i++) {
-    toggle(i, true);
-  }
+    for (i = 0; i < 5; i++) {
+      toggle(i, true);
+    }
 
   } else if (message.substring(0,3) == "tog") { // toggle
   // turn switch port open or closed
@@ -201,14 +145,8 @@ void setup() {
   pinMode(nSleep,OUTPUT);
   digitalWrite(nSleep,HIGH);
 
-  pinMode(iSense, INPUT);
-  pinMode(Vout_read_pin, INPUT);
-  pinMode(Vout_set_pin, OUTPUT);
-
-  setVoltage(Vout_set);
-  delay(1000);
-
   initializeChips();
+
   for( i = 0;i < 6;i++){
     Wire.beginTransmission(chipAddr[i]);
     error = Wire.endTransmission();
