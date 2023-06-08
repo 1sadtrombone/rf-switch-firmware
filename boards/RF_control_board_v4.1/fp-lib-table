@@ -1,0 +1,11 @@
+(fp_lib_table
+  (lib (name "TPS55288")(type "KiCad")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_TPS55288QRPMRQ1/KiCAD/2023-01-13_02-03-38/footprints.pretty")(options "")(descr ""))
+  (lib (name "YFF0015AHAN")(type "KiCad")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_TPS63811YFFR/KiCAD/2023-01-13_22-07-58/footprints.pretty")(options "")(descr ""))
+  (lib (name "SOT-753_1P6X2P9_ONS")(type "KiCad")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_SBE805-TL-E/KiCAD/2023-01-13_23-34-19/footprints.pretty")(options "")(descr ""))
+  (lib (name "myVaristor")(type "KiCad")(uri "${KIPRJMOD}/myVaristor.pretty")(options "")(descr ""))
+  (lib (name "DCK0006A_N")(type "KiCad")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_INA213AIDCKT/KiCAD/2023-01-17_18-52-15/DCK0006A_N.pretty")(options "")(descr ""))
+  (lib (name "Connector_Dsub")(type "KiCad")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/Connector_Dsub.pretty")(options "")(descr ""))
+  (lib (name "SOT-223_ST_LIT")(type "KiCad")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_LT3088EST-PBF/KiCAD/2023-01-24_19-10-45/footprints.pretty")(options "")(descr ""))
+  (lib (name "D22012_B_NKK")(type "KiCad")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_D22018B/KiCAD/2023-01-29_19-41-50/D22012_B_NKK.pretty")(options "")(descr ""))
+  (lib (name "2_way_DIP")(type "KiCad")(uri "${KIPRJMOD}/2_way_DIP.pretty")(options "")(descr ""))
+)

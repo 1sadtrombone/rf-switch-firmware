@@ -1,0 +1,11 @@
+(sym_lib_table
+  (lib (name "TPS55288")(type "Legacy")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_TPS55288QRPMRQ1/KiCAD/2023-01-13_02-03-38/2023-01-13_02-03-38.lib")(options "")(descr ""))
+  (lib (name "DRV8847SPWR")(type "Legacy")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_DRV8847SPWR/KiCAD/2023-01-13_18-18-07/2023-01-13_18-18-07.lib")(options "")(descr ""))
+  (lib (name "TPS63811YFFR")(type "Legacy")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_TPS63811YFFR/KiCAD/2023-01-13_22-07-58/2023-01-13_22-07-58.lib")(options "")(descr ""))
+  (lib (name "SBE805-TL-E")(type "KiCad")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_SBE805-TL-E/KiCAD/2023-01-13_23-34-19/2023-01-13_23-34-19.kicad_sym")(options "")(descr ""))
+  (lib (name "myVaristor")(type "KiCad")(uri "${KIPRJMOD}/myVaristor.pretty/myVaristor.kicad_sym")(options "")(descr ""))
+  (lib (name "INA213AIDCKT")(type "Legacy")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_INA213AIDCKT/KiCAD/2023-01-17_18-52-15/INA213AIDCKT.lib")(options "")(descr ""))
+  (lib (name "DB25")(type "KiCad")(uri "${KIPRJMOD}/DB25.kicad_sym")(options "")(descr "")(disabled))
+  (lib (name "LT3088EST-PBF")(type "Legacy")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_LT3088EST-PBF/KiCAD/2023-01-24_19-10-45/LT3088EST-PBF.lib")(options "")(descr ""))
+  (lib (name "D22018B")(type "Legacy")(uri "C:/Users/tajdy/Documents/KiCad/6.0/mySymbols/ul_D22018B/KiCAD/2023-01-29_19-41-50/D22018B.lib")(options "")(descr ""))
+)
