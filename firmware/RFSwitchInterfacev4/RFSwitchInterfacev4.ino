@@ -30,7 +30,7 @@ float V_operating = 4.995; // 4.7 if on USB only power
 float Rshunt = 0.1; // Ohms
 float Gain = 50; // From datasheet
 float currentScale = V_operating/(Rshunt * Gain)/1024.0*1000; // mA
-int zeroCurrentLevel = 8; // what analogRead reads with no current
+int zeroCurrentLevel = 11; // what analogRead reads with no current
 
 float Vout_set = 3.2; // can't go lower than 1.1 V, chips need 2.7 V anyway
 int Vout_set_int;
@@ -237,6 +237,11 @@ void setup() {
   digitalWrite(nSleep,HIGH);
 
   pinMode(iSense, INPUT);
+  pinMode(Vout_read_pin, INPUT);
+  pinMode(Vout_set_pin, OUTPUT);
+
+  setVoltage(Vout_set);
+  delay(1000);
 
   initializeChips();
   for( i = 0;i < 9;i++){
