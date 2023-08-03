@@ -19,20 +19,20 @@ byte chipAddr[] = {0x61,0x62,0x63,0x64,0x65,0x66,0x67,0x68,0x69};
 
 // chip and pin numbers to turn on/off [switch #][port #]
 int Cnums[3][6] = {{0, 0, 1, 1, 2, 2}, {3, 3, 4, 4, 5, 5}, {6, 6, 7, 7, 8, 8}};
-int clsPnums[3][6] = {{3, 1, 3, 1, 3, 1}, {3, 1, 3, 1, 3, 1}, {3, 1, 3, 1, 3, 1}};
-int opnPnums[3][6] = {{2, 0, 2, 0, 2, 0}, {2, 0, 2, 0, 2, 0}, {2, 0, 2, 0, 2, 0}};
+int opnPnums[3][6] = {{3, 1, 3, 1, 3, 1}, {3, 1, 3, 1, 3, 1}, {3, 1, 3, 1, 3, 1}};
+int clsPnums[3][6] = {{2, 0, 2, 0, 2, 0}, {2, 0, 2, 0, 2, 0}, {2, 0, 2, 0, 2, 0}};
 
 byte commandBits;
 
 float Vout_meas;
 float current;
-float V_operating = 4.995; // 4.7 if on USB only power
+float V_operating = 4.7;//4.995; // 4.7 if on USB only power
 float Rshunt = 0.1; // Ohms
 float Gain = 50; // From datasheet
 float currentScale = V_operating/(Rshunt * Gain)/1024.0*1000; // mA
 int zeroCurrentLevel = 11; // what analogRead reads with no current
 
-float Vout_set = 3.2; // can't go lower than 1.1 V, chips need 2.7 V anyway
+float Vout_set = 3.7; // can't go lower than 1.1 V, chips need 2.7 V anyway
 int Vout_set_int;
 
 int writeError;
@@ -76,17 +76,17 @@ byte readRegister(byte addr, byte reg){
 
 void initializeChips(){
   writeRegister(ADDR0,I2C_2,0b01000000);
-  for( i = 0;i < 6;i++){
+  for( i = 0;i < 9;i++){
     pinMode(nFaultPins[i],OUTPUT);
     digitalWrite(nFaultPins[i],LOW);
   }
-  for( i = 0;i < 6;i++){
+  for( i = 0;i < 9;i++){
     digitalWrite(nFaultPins[i],HIGH);
     writeRegister(ADDR0,I2C_1,0b00000100);
     writeRegister(ADDR0,ADDR_REG,chipAddr[i]);
     digitalWrite(nFaultPins[i],LOW);
   }
-  for (i = 0;i < 6;i++){
+  for (i = 0;i < 9;i++){
     pinMode(nFaultPins[i],INPUT);
     writeRegister(chipAddr[i],I2C_2,0b00000000);
   }
