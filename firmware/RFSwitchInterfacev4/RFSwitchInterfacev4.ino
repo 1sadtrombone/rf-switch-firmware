@@ -19,8 +19,8 @@ byte chipAddr[] = {0x61,0x62,0x63,0x64,0x65,0x66,0x67,0x68,0x69};
 
 // chip and pin numbers to turn on/off [switch #][port #]
 int Cnums[3][6] = {{0, 0, 1, 1, 2, 2}, {3, 3, 4, 4, 5, 5}, {6, 6, 7, 7, 8, 8}};
-int opnPnums[3][6] = {{3, 1, 3, 1, 3, 1}, {3, 1, 3, 1, 3, 1}, {3, 1, 3, 1, 3, 1}};
-int clsPnums[3][6] = {{2, 0, 2, 0, 2, 0}, {2, 0, 2, 0, 2, 0}, {2, 0, 2, 0, 2, 0}};
+int clsPnums[3][6] = {{3, 1, 3, 1, 3, 1}, {3, 1, 3, 1, 3, 1}, {3, 1, 3, 1, 3, 1}};
+int opnPnums[3][6] = {{2, 0, 2, 0, 2, 0}, {2, 0, 2, 0, 2, 0}, {2, 0, 2, 0, 2, 0}};
 
 byte commandBits;
 
@@ -32,7 +32,7 @@ float Gain = 50; // From datasheet
 float currentScale = V_operating/(Rshunt * Gain)/1024.0*1000; // mA
 int zeroCurrentLevel = 11; // what analogRead reads with no current
 
-float Vout_set = 3.7; // can't go lower than 1.1 V, chips need 2.7 V anyway
+float Vout_set = 4.0; // can't go lower than 1.1 V, chips need 2.7 V anyway
 int Vout_set_int;
 
 int writeError;
