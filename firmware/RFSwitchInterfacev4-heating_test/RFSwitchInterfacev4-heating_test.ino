@@ -50,7 +50,7 @@ int port_index;
 
 int tick_count;
 int ms_per_switch = 10000;
-int last_switch_time = 0;
+unsigned long last_switch_time = 0;
 bool switchClosed = false;
 
 unsigned long pulse_start; // for timing the pulses without delay()
